@@ -9,7 +9,7 @@
     "express": "^4.18.2"
   },
   "scripts": {
-    "start": "nodemon",
+    "dev": "nodemon",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write ./src",

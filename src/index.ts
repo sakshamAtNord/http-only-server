@@ -32,6 +32,11 @@ app.post("/login", (req, res) => {
     if (req.body.username === "test" && req.body.password === "test123") {
       const userAndTimeStamp = `user:test serverLoginTime: ${new Date().toString()}`;
 
+      const data = {
+        user: "test",
+        serverLoginTime: new Date().toString(),
+      };
+
       res
         .status(201)
         .cookie("accessToken", JSON.stringify(userAndTimeStamp), {
@@ -43,7 +48,7 @@ app.post("/login", (req, res) => {
           expires: dayjs().add(1, "hours").toDate(),
           encode: String,
         })
-        .json({ success: true, message: "test user logged in!" });
+        .json({ success: true, message: "test user logged in!", data });
     } else {
       res
         .status(401)
