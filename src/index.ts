@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dayjs from "dayjs";
-
+import morgan from "morgan";
 const app = express();
 
 const originWhitelist = [
@@ -13,6 +13,8 @@ const corsOptions = {
   origin: originWhitelist,
   credentials: true,
 };
+
+app.use(morgan("dev"));
 
 app.use(cors(corsOptions));
 
